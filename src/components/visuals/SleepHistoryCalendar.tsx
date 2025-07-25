@@ -5,7 +5,7 @@ const SleepHistoryCalendar: React.FC = () => {
     <section>
       <h2>Sleep History (Calendar View)</h2>
       <div className="card">
-        <p>Calendar coming soon... (You can integrate `react-calendar` or build a custom one)</p>
+        <p>Calendar coming soon...</p>
       </div>
     </section>
   );
