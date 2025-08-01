@@ -3,9 +3,9 @@ import React from 'react';
 const SleepHistoryCalendar: React.FC = () => {
   return (
     <section>
-      <h2>Sleep History (Calendar View)</h2>
+      <h2>Sleep History</h2>
       <div className="card">
-        <p>Calendar coming soon...</p>
+        <p>Calendar coming soon... (You can integrate `react-calendar` or build a custom one)</p>
       </div>
     </section>
   );
