@@ -16,8 +16,17 @@ const SleepDashboard: React.FC = () => {
 
   return (
     <div className="dashboard-container">
-      {/* Sidebar */}
-      <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+      {/* Navbar */}
+      <div className="navbar">
+        <button onClick={toggleSidebar} className="menu-toggle">
+          ☰
+        </button>
+        <h1 className="navbar-title">Sleep Analysis Dashboard</h1>
+        <div />
+      </div>
+
+      {/* Collapsible Topbar directly below navbar */}
+      <div className={`topbar ${isSidebarOpen ? 'open' : 'closed'}`}>
         <div className="sidebar-buttons">
           <button onClick={() => navigate('/add-data')} className="sidebar-btn">
             Add Sleep Data
@@ -31,25 +40,15 @@ const SleepDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="main-content">
-        <div className="navbar">
-          <button onClick={toggleSidebar} className="menu-toggle">
-            ☰
-          </button>
-          <h1 className="navbar-title">Sleep Analysis Dashboard</h1>
-          <div />
-        </div>
-
-        <div className="dashboard-content">
-          <CoreMetrics />
-          <StageMetrics />
-          <QualityMetrics />
-          <PhysiologicalMetrics />
-          <LifestyleMetrics />
-          <AdvancedInsights />
-          <SleepHistoryCalendar />
-        </div>
+      {/* Main dashboard content */}
+      <div className="dashboard-content">
+        <CoreMetrics />
+        <StageMetrics />
+        <QualityMetrics />
+        <PhysiologicalMetrics />
+        <LifestyleMetrics />
+        <AdvancedInsights />
+        <SleepHistoryCalendar />
       </div>
     </div>
   );

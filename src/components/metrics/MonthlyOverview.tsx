@@ -65,9 +65,9 @@ const MonthlySleepChart = () => {
   };
 
   return (
-    <div className="chart-container">
+    <div className="monthly-page">
       <button className="back-btn" onClick={() => navigate('/')}>← Back to Dashboard</button>
-      <h2 className="chart-title">Monthly Sleep Overview</h2>
+      <h2 className="monthly-title">Monthly Sleep Overview</h2>
 
       {/* Monthly Graph */}
       <ResponsiveContainer width="100%" height={300}>

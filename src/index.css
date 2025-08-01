@@ -61,15 +61,6 @@ h2 {
   background-color: #303f9f;
 }
 
-.chart-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
 .back-btn {
   background-color: #eee;
   border: none;
@@ -83,13 +74,6 @@ h2 {
 
 .back-btn:hover {
   background-color: #ddd;
-}
-
-.chart-title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 20px;
 }
 
 .sleep-details {
@@ -112,26 +96,6 @@ h2 {
 
 .sleep-details p {
   margin: 6px 0;
-}
-
-.chart-container {
-  padding: 30px;
-  font-family: Arial, sans-serif;
-}
-
-.back-btn {
-  background: #555;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.chart-title {
-  text-align: center;
-  margin-bottom: 25px;
 }
 
 .month-selector {
@@ -173,19 +137,6 @@ h2 {
   padding: 12px;
   background-color: #f9f9f9;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-}
-
-.sidebar {
-  background-color: #1e293b;
-  color: white;
-  padding: 1rem;
-  transition: width 0.3s ease;
-  width: 220px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.collapsed {
@@ -286,17 +237,92 @@ h2 {
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .navbar-title {
-  font-size: 22px;
-  font-weight: 600;
-  margin: 0;
+  margin: 0 auto; /* keeps title centered */
+  text-align: center;
 }
 
 .dashboard-content {
   padding: 24px;
   overflow-y: auto;
 }
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.topbar {
+  background-color: #1f2937;
+  color: white;
+  width: 100%;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.topbar.open {
+  max-height: 250px;
+  padding: 16px;
+}
+
+.topbar.closed {
+  max-height: 0;
+  padding: 0;
+}
+
+.sidebar-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: nowrap; 
+  margin-top: 0;
+  overflow-x: auto;   
+  padding-bottom: 8px;
+}
+
+.sidebar-btn {
+  background-color: #4b5563;
+  border: none;
+  padding: 12px 20px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-btn:hover {
+  background-color: #43474c;
+}
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 24px;
+  background-color: #f9fafb;
+  overflow-y: auto;
+}
+
+
+.menu-toggle {
+  position: absolute;
+  left: 16px;
+}
+
