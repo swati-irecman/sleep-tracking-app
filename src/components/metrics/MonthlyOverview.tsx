@@ -66,7 +66,7 @@ const MonthlySleepChart = () => {
 
   return (
     <div className="monthly-page">
-      <button className="back-btn" onClick={() => navigate('/')}>← Back to Dashboard</button>
+      <button className="back-btn" onClick={() => navigate('/dashboard')}>← Back to Dashboard</button>
       <h2 className="monthly-title">Monthly Sleep Overview</h2>
 
       {/* Monthly Graph */}

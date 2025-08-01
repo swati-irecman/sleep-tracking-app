@@ -43,7 +43,7 @@ const WeeklySleepChart = () => {
   return (
     <div className="chart-container">
      
-      <button className="back-btn" onClick={() => navigate('/')}>← Back to Dashboard</button>
+      <button className="back-btn" onClick={() => navigate('/dashboard')}>← Back to Dashboard</button>
 
       <h2 className="chart-title">Weekly Sleep Duration</h2>
 

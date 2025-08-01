@@ -426,7 +426,7 @@ const SleepInputForm: React.FC = () => {
           <button 
             type="button" 
             className="cancel-btn"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/dashboard')}
           >
             Cancel
           </button>
