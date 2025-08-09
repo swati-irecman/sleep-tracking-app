@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import SleepDashboard from './components/SleepDashboard';
-import SleepInputForm from './components/SleepInputForm'; 
+import SleepInputForm from './components/SleepInputForm';
+import Questionnaire from './components/Questionnaire'; 
 import MonthlyOverview from './components/metrics/MonthlyOverview';
 import WeeklySleepChart from './components/metrics/WeeklySleepChart';
 import LoginPage from './components/LoginPage';
@@ -24,6 +25,10 @@ const App: React.FC = () => {
               <Route
                 path="/add-data"
                 element={isLoggedIn ? <SleepInputForm /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/questionnaire"
+                element={isLoggedIn ? <Questionnaire /> : <Navigate to="/" />}
               />
               <Route
                 path="/monthly"

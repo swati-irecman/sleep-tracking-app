@@ -31,6 +31,9 @@ const SleepDashboard: React.FC = () => {
           <button onClick={() => navigate('/add-data')} className="sidebar-btn">
             Add Sleep Data
           </button>
+          <button onClick={() => navigate('/questionnaire')} className="sidebar-btn">
+            Questionnaire
+          </button>
           <button onClick={() => navigate('/monthly')} className="sidebar-btn">
             Monthly Overview
           </button>
