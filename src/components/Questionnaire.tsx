@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './SleepInputForm.css';
+import './Questionnaire.css';
 
 const Questionnaire: React.FC = () => {
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState({
     sleepQuality: '',
     bedtime: '',
@@ -18,7 +18,9 @@ const Questionnaire: React.FC = () => {
     overallRating: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -26,6 +28,10 @@ const Questionnaire: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Questionnaire submitted:', formData);
+
+    // Save to localStorage instead of API/database
+    localStorage.setItem('sleepData', JSON.stringify(formData));
+
     navigate('/dashboard');
   };
 
@@ -33,7 +39,7 @@ const Questionnaire: React.FC = () => {
     <div className="questionnaire-container">
       <h2>Daily Sleep Questionnaire</h2>
       <form onSubmit={handleSubmit}>
-
+        
         <div className="form-group">
           <label>How was your sleep yesterday?</label>
           <textarea
@@ -64,17 +70,29 @@ const Questionnaire: React.FC = () => {
           />
         </div>
 
+        {/* Yes/No Radio Options */}
         <div className="form-group">
           <label>Did you wake up during the night?</label>
-          <select
-            name="wokeUpAtNight"
-            value={formData.wokeUpAtNight}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="wokeUpAtNight"
+                value="Yes"
+                checked={formData.wokeUpAtNight === 'Yes'}
+                onChange={handleChange}
+              /> Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="wokeUpAtNight"
+                value="No"
+                checked={formData.wokeUpAtNight === 'No'}
+                onChange={handleChange}
+              /> No
+            </label>
+          </div>
         </div>
 
         <div className="form-group">
@@ -91,28 +109,50 @@ const Questionnaire: React.FC = () => {
 
         <div className="form-group">
           <label>Did you feel rested this morning?</label>
-          <select
-            name="feltRested"
-            value={formData.feltRested}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="feltRested"
+                value="Yes"
+                checked={formData.feltRested === 'Yes'}
+                onChange={handleChange}
+              /> Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="feltRested"
+                value="No"
+                checked={formData.feltRested === 'No'}
+                onChange={handleChange}
+              /> No
+            </label>
+          </div>
         </div>
 
         <div className="form-group">
           <label>Did you have any dreams?</label>
-          <select
-            name="hadDreams"
-            value={formData.hadDreams}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="hadDreams"
+                value="Yes"
+                checked={formData.hadDreams === 'Yes'}
+                onChange={handleChange}
+              /> Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="hadDreams"
+                value="No"
+                checked={formData.hadDreams === 'No'}
+                onChange={handleChange}
+              /> No
+            </label>
+          </div>
         </div>
 
         <div className="form-group">
@@ -128,15 +168,26 @@ const Questionnaire: React.FC = () => {
 
         <div className="form-group">
           <label>Was your room temperature comfortable?</label>
-          <select
-            name="comfortableTemp"
-            value={formData.comfortableTemp}
-            onChange={handleChange}
-          >
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="comfortableTemp"
+                value="Yes"
+                checked={formData.comfortableTemp === 'Yes'}
+                onChange={handleChange}
+              /> Yes
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="comfortableTemp"
+                value="No"
+                checked={formData.comfortableTemp === 'No'}
+                onChange={handleChange}
+              /> No
+            </label>
+          </div>
         </div>
 
         <div className="form-group">
@@ -152,14 +203,14 @@ const Questionnaire: React.FC = () => {
         </div>
 
         <div className="form-actions">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="cancel-btn"
             onClick={() => navigate('/dashboard')}
           >
             Cancel
           </button>
-          <button type="submit" className="submit-btn" >
+          <button type="submit" className="submit-btn">
             Save Answers
           </button>
         </div>

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import SleepDashboard from './components/SleepDashboard';
 import SleepInputForm from './components/SleepInputForm';
 import Questionnaire from './components/Questionnaire'; 
+import BeforeSleepingQuestions from './components/BeforeSleepingQuestions';
 import MonthlyOverview from './components/metrics/MonthlyOverview';
 import WeeklySleepChart from './components/metrics/WeeklySleepChart';
 import LoginPage from './components/LoginPage';
@@ -25,6 +26,10 @@ const App: React.FC = () => {
               <Route
                 path="/add-data"
                 element={isLoggedIn ? <SleepInputForm /> : <Navigate to="/" />}
+              />
+              <Route
+                path="/BeforeSleepingQuestions"
+                element={isLoggedIn ? <BeforeSleepingQuestions /> : <Navigate to="/" />}
               />
               <Route
                 path="/questionnaire"
